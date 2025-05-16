@@ -13,48 +13,31 @@
         }
 
         body {
-            background-color: #1a1a1a;
+            background-color: #000;
             color: #fff;
-        }
-
-        .container {
-            display: flex;
-            height: 100vh;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            width: 60px;
-            background-color: #2a2a2a;
-            padding: 20px 10px;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
-        .sidebar img {
-            width: 30px;
-            margin-bottom: 20px;
-            filter: brightness(0) invert(1);
-        }
-
-        /* Main Content */
-        .main-content {
+        main {
             flex: 1;
-            padding: 20px;
-            overflow: auto;
         }
 
+        /* Header */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #0a0a0a;
+            border-bottom: 1px solid #6b5b95;
         }
 
-        .header h1 {
+        .header .logo {
             font-size: 24px;
             font-weight: bold;
+            color: #6b5b95;
         }
 
         .header .nav-links a {
@@ -71,114 +54,273 @@
         }
 
         /* About Us Section */
-        .about-section {
-            background-color: #2a2a2a;
-            padding: 30px;
-            border-radius: 10px;
+        .about-us {
+            text-align: center;
+            padding: 50px 20px;
+            background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+            margin-bottom: 40px;
+        }
+
+        .about-us h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #6b5b95;
+        }
+
+        .about-us p {
+            font-size: 16px;
+            color: #ccc;
             max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .vision-mission {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 20px;
+            background-color: #0a0a0a;
+        }
+
+        .vision-mission div {
+            flex: 1;
+            max-width: 300px;
+            text-align: center;
+        }
+
+        .vision-mission h3 {
+            font-size: 20px;
+            color: #6b5b95;
+            margin-bottom: 10px;
+        }
+
+        .vision-mission p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* Our Team Section */
+        .our-team {
+            padding: 50px 20px;
+            background-color: #0a0a0a;
+            text-align: center;
+        }
+
+        .our-team h2 {
+            font-size: 36px;
+            color: #6b5b95;
+            margin-bottom: 40px;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .about-section h2 {
-            font-size: 28px;
-            margin-bottom: 20px;
+        .team-member {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
         }
 
-        .about-section .project-name {
-            font-size: 24px;
-            font-weight: bold;
-            color: #888;
-            margin-bottom: 20px;
-            text-align: center;
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            background-color: #6b5b95;
+            border-radius: 50%;
+            margin-bottom: 10px;
         }
 
-        .about-section .description {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #ccc;
-            text-align: justify;
-        }
-
-         .our-mission .description {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #ccc;
-            text-align: justify;
-        }
-
-        .about-section .placeholder {
-            background-color: #444;
-            padding: 15px;
-            border-radius: 5px;
+        .team-member h4 {
+            font-size: 18px;
             color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            font-size: 14px;
+            color: #ccc;
+        }
+
+        /* Join Our Team Section */
+        .join-team {
+            padding: 50px 20px;
+            background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
             text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .join-team h2 {
+            font-size: 36px;
+            color: #6b5b95;
             margin-bottom: 20px;
+        }
+
+        .join-team p {
+            font-size: 16px;
+            color: #ccc;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .join-team button {
+            background-color: #6b5b95;
+            border: none;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .join-team button:hover {
+            background-color: #5a4a7a;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0a0a0a;
+            padding: 40px 20px;
+            border-top: 1px solid #6b5b95;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .footer-column ul li a:hover {
+            color: #6b5b95;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <img src="https://via.placeholder.com/30" alt="Ekho Logo">
-            <img src="https://via.placeholder.com/30" alt="Targets Icon">
-            <img src="https://via.placeholder.com/30" alt="Scans Icon">
-            <img src="https://via.placeholder.com/30" alt="Risks Icon">
-            <img src="https://via.placeholder.com/30" alt="Reports Icon">
-            <img src="https://via.placeholder.com/30" alt="Settings Icon" style="margin-top: auto;">
-        </div>
-
-        <!-- Main Content -->
-        <div class="main-content">
-            <div class="header">
-                <h1>About Us</h1>
-                <div class="nav-links">
-                    <a href="{{ url_for('dashboard') }}">Dashboard</a>
-                    <a href="{{ url_for('about') }}">About Us</a>
-                    <a href="{{ url_for('contact') }}">Contact Us</a>
-                    <a href="{{ url_for('help') }}">Help</a>
-                    <a href="{{ url_for('login') }}" class="login">Login</a>
-                </div>
-            </div>
-
-            <!-- About Us Section -->
-            <div class="about-section">
-                <h2>About Us</h2>
-                <div class="project-name placeholder">
-                    Project EHKO
-                </div>
-                <div class="description placeholder">
-                    EKHO is a next-generation vulnerability scanning platform built for simplicity, speed, and security. Designed by cybersecurity students and practitioners, EKHO empowers individuals and organizations to proactively identify and address weaknesses in their digital infrastructure before they can be exploited.
-
-In a world where threats evolve faster than ever, we believe cybersecurity shouldn’t be reserved for large enterprises or technical experts. EKHO is committed to making vulnerability scanning accessible, understandable, and actionable for everyone—from small businesses and startups to IT professionals and students.
-
-Our platform supports both network and web application scans, giving users insight into potential misconfigurations, open ports, outdated software, and known vulnerabilities—all presented in a clear, easy-to-navigate interface with real-time reporting and guided remediation steps.
-                </div>
-            <div class="our-mission">
-                <h2>Our Mission</h2>
-                 <div class="description placeholder">
-                     <p>
-  At <strong>EKHO</strong>, our mission is to democratize cybersecurity by putting powerful vulnerability scanning tools into the hands of everyone who needs them. We aim to bridge the gap between complexity and usability, helping users detect threats, protect their systems, and build a more secure digital world—one scan at a time.
-</p>
-
-<p>We are committed to:</p>
-
-<ul>
-  <li>Providing intuitive tools that deliver deep insights without the noise.</li>
-  <li>Educating and enabling users to understand and act on vulnerabilities.</li>
-  <li>Continuously evolving our platform to stay ahead of emerging threats.</li>
-</ul>
-
-<p>
-  Whether you're a developer, a security analyst, a student, or a business owner—<strong>EKHO</strong> is here to help you <em>listen for the threats others don’t hear</em>.
-</p>
-                 </div>
-
-            </div>
-
+    <main>
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">EKHO</div>
+            <div class="nav-links">
+                <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('about') }}">About Us</a>
+                <a href="{{ url_for('contact') }}">Contact Us</a>
+                <a href="{{ url_for('help') }}">Help</a>
+                <a href="{{ url_for('login') }}" class="login">Login</a>
             </div>
         </div>
-    </div>
+
+        <!-- About Us Section -->
+        <div class="about-us">
+            <h2>About Us</h2>
+            <p>We are a team passionate about cybersecurity, leveraging cutting-edge technology to protect your digital assets. Our mission is to provide innovative solutions that keep you ahead of threats.</p>
+        </div>
+
+        <!-- Vision and Mission -->
+        <div class="vision-mission">
+            <div>
+                <h3>Vision</h3>
+                <p>To lead the future of cybersecurity with innovative and adaptive solutions.</p>
+            </div>
+            <div>
+                <h3>Mission</h3>
+                <p>To empower organizations with tools and insights to mitigate risks effectively.</p>
+            </div>
+        </div>
+
+        <!-- Our Team Section -->
+        <div class="our-team">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Team Member">
+                    <h4>John Doe</h4>
+                    <p>CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Team Member">
+                    <h4>Jane Smith</h4>
+                    <p>CTO</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Team Member">
+                    <h4>Mike Johnson</h4>
+                    <p>Lead Developer</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Join Our Team Section -->
+        <div class="join-team">
+            <h2>Join Our Team</h2>
+            <p>We are always looking for talented individuals to join our mission. Explore opportunities and grow with us!</p>
+            <button>Join Now</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Privacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="{{ url_for('about') }}">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
