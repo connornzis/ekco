@@ -104,7 +104,7 @@
             background-color: #444;
             padding: 15px;
             border-radius: 5px;
-            color: #888;
+            color: #fff;
             text-align: center;
             margin-bottom: 20px;
         }
@@ -127,6 +127,7 @@
             <div class="header">
                 <h1>About Us</h1>
                 <div class="nav-links">
+                    <a href="{{ url_for('dashboard') }}">Dashboard</a>
                     <a href="{{ url_for('about') }}">About Us</a>
                     <a href="{{ url_for('contact') }}">Contact Us</a>
                     <a href="{{ url_for('help') }}">Help</a>
@@ -138,7 +139,7 @@
             <div class="about-section">
                 <h2>About Us</h2>
                 <div class="project-name placeholder">
-                    [Your Project Name Here]
+                    Project EHKO
                 </div>
                 <div class="description placeholder">
                     [Write your About Us description here. Tell your story, mission, and what makes your project unique.]
