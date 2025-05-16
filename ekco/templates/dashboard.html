@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekho Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 60px;
+            background-color: #2a2a2a;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar img {
+            width: 30px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header .nav-links a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .header .nav-links a.login {
+            background-color: #6b5b95;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        /* Risks Detected Section */
+        .risks-detected {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .risks-detected h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .risk-level {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .risk-level span {
+            flex: 1;
+            padding: 10px;
+            border-radius: 5px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .risk-level .count {
+            margin-left: 10px;
+            color: #fff;
+        }
+
+        .critical { background-color: #ff4d4d; }
+        .high { background-color: #ff8c00; }
+        .medium { background-color: #ffd700; }
+        .low { background-color: #32cd32; }
+        .accepted { background-color: #90ee90; }
+        .closed { background-color: #d3d3d3; }
+
+        /* Recent Scans Section */
+        .recent-scans {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .recent-scans h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .recent-scans h2 a {
+            color: #fff;
+            font-size: 14px;
+            text-decoration: none;
+        }
+
+        .recent-scans table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .recent-scans th, .recent-scans td {
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        .recent-scans th {
+            color: #888;
+        }
+
+        .recent-scans td {
+            border-bottom: 1px solid #444;
+        }
+
+        .recent-scans .severity {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .recent-scans .time-filter {
+            margin-top: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .recent-scans .time-filter button {
+            background-color: #444;
+            border: none;
+            padding: 5px 10px;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .recent-scans .time-filter button.active {
+            background-color: #888;
+        }
+
+        /* Metrics Cards */
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .metric-card {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .metric-card h3 {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .metric-card .value {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .metric-card .percentage {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .metric-card .graph {
+            height: 50px;
+            background-color: #444;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <img src="https://via.placeholder.com/30" alt="Ekho Logo">
+            <img src="https://via.placeholder.com/30" alt="Targets Icon">
+            <img src="https://via.placeholder.com/30" alt="Scans Icon">
+            <img src="https://via.placeholder.com/30" alt="Risks Icon">
+            <img src="https://via.placeholder.com/30" alt="Reports Icon">
+            <img src="https://via.placeholder.com/30" alt="Settings Icon" style="margin-top: auto;">
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Dashboard</h1>
+                <div class="nav-links">
+                    <a href="{{ url_for('about') }}">About Us</a>
+                    <a href="{{ url_for('contact') }}">Contact Us</a>
+                    <a href="{{ url_for('help') }}">Help</a>
+                    <a href="{{ url_for('login') }}" class="login">Login</a>
+                </div>
+            </div>
+
+            <!-- Risks Detected -->
+            <div class="risks-detected">
+                <h2>Risks detected</h2>
+                <div class="risk-level"><span class="critical">Critical</span><span class="count">2</span></div>
+                <div class="risk-level"><span class="high">High</span><span class="count">3</span></div>
+                <div class="risk-level"><span class="medium">Medium</span><span class="count">0</span></div>
+                <div class="risk-level"><span class="low">Low</span><span class="count">0</span></div>
+                <div class="risk-level"><span class="accepted">Accepted</span><span class="count">4</span></div>
+                <div class="risk-level"><span class="closed">Closed</span><span class="count">2</span></div>
+            </div>
+
+            <!-- Recent Scans -->
+            <div class="recent-scans">
+                <h2>Recent Scans <a href="#">Show all</a></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>SECURITY</th>
+                            <th>ALERT NAME</th>
+                            <th>DATE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="severity critical"></span>Critical</td>
+                            <td>A Malicious Scheduled Task Was Created</td>
+                            <td>24 / 02 / 2025</td>
+                        </tr>
+                        <tr>
+                            <td><span class="severity high"></span>High</td>
+                            <td>A Malicious Scheduled Task Was Created</td>
+                            <td>24 / 02 / 2025</td>
+                        </tr>
+                        <tr>
+                            <td><span class="severity medium"></span>Medium</td>
+                            <td>A Malicious Scheduled Task Was Created</td>
+                            <td>24 / 02 / 2025</td>
+                        </tr>
+                        <tr>
+                            <td><span class="severity low"></span>Low</td>
+                            <td>A Malicious Scheduled Task Was Created</td>
+                            <td>24 / 02 / 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="time-filter">
+                    <button class="active">1 Week</button>
+                    <button>1 Month</button>
+                    <button>1 Year</button>
+                </div>
+            </div>
+
+            <!-- Metrics -->
+            <div class="metrics">
+                <div class="metric-card">
+                    <h3>Open alerts</h3>
+                    <div class="value">149</div>
+                    <div class="percentage">30%</div>
+                    <div class="graph"></div>
+                </div>
+                <div class="metric-card">
+                    <h3>Critical / High alerts</h3>
+                    <div class="value">15</div>
+                    <div class="percentage">5%</div>
+                    <div class="graph"></div>
+                </div>
+                <div class="metric-card">
+                    <h3>Unassigned alerts</h3>
+                    <div class="value">65</div>
+                    <div class="percentage">10%</div>
+                    <div class="graph"></div>
+                </div>
+                <div class="metric-card">
+                    <h3>Assets requiring alerts</h3>
+                    <div class="value">23</div>
+                    <div class="percentage">10%</div>
+                    <div class="graph"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

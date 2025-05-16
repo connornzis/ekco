@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Ekho</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 60px;
+            background-color: #2a2a2a;
+            padding: 20px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar img {
+            width: 30px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            overflow: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header .nav-links a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .header .nav-links a.login {
+            background-color: #6b5b95;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+
+        /* About Us Section */
+        .about-section {
+            background-color: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-section .project-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #888;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .about-section .description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #ccc;
+            text-align: justify;
+        }
+
+        .about-section .placeholder {
+            background-color: #444;
+            padding: 15px;
+            border-radius: 5px;
+            color: #888;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <img src="https://via.placeholder.com/30" alt="Ekho Logo">
+            <img src="https://via.placeholder.com/30" alt="Targets Icon">
+            <img src="https://via.placeholder.com/30" alt="Scans Icon">
+            <img src="https://via.placeholder.com/30" alt="Risks Icon">
+            <img src="https://via.placeholder.com/30" alt="Reports Icon">
+            <img src="https://via.placeholder.com/30" alt="Settings Icon" style="margin-top: auto;">
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>About Us</h1>
+                <div class="nav-links">
+                    <a href="{{ url_for('about') }}">About Us</a>
+                    <a href="{{ url_for('contact') }}">Contact Us</a>
+                    <a href="{{ url_for('help') }}">Help</a>
+                    <a href="{{ url_for('login') }}" class="login">Login</a>
+                </div>
+            </div>
+
+            <!-- About Us Section -->
+            <div class="about-section">
+                <h2>About Us</h2>
+                <div class="project-name placeholder">
+                    [Your Project Name Here]
+                </div>
+                <div class="description placeholder">
+                    [Write your About Us description here. Tell your story, mission, and what makes your project unique.]
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
